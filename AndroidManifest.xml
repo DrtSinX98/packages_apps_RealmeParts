@@ -22,11 +22,8 @@
     <uses-permission android:name="android.permission.INJECT_EVENTS"
         tools:ignore="ProtectedPermissions" />
     <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
-    <uses-permission android:name="android.permission.WAKE_LOCK" />
     <uses-permission android:name="android.permission.WRITE_SETTINGS"
         tools:ignore="ProtectedPermissions" />
-
-    <protected-broadcast android:name="com.android.systemui.doze.pulse" />
 
     <application
         android:icon="@android:drawable/sym_def_app_icon"
@@ -34,19 +31,6 @@
             android:theme="@style/Theme.SubSettingsBase"
         android:allowBackup="true"
         android:fullBackupContent="true">
-
-        <!-- Doze -->
-        <activity
-            android:name=".doze.DozeSettingsActivity"
-            android:label="@string/ambient_display_gestures_title"
-            android:theme="@style/Theme.SubSettingsBase"
-            android:exported="true">
-            <intent-filter>
-                <action android:name="com.android.settings.action.IA_SETTINGS" />
-            </intent-filter>
-            <meta-data android:name="com.android.settings.category"
-                       android:value="com.android.settings.category.ia.display" />
-        </activity>
 
         <!-- Device Settings -->
         <activity
@@ -180,9 +164,6 @@
                 android:exported="false">
         </service>
         <service android:name="com.realmeparts.HBMService"
-                android:exported="false">
-        </service>
-        <service android:name="com.realmeparts.doze.DozeService"
                 android:exported="false">
         </service>
     </application>
